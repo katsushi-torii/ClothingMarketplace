@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+img{
+    width: 10%;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -31,3 +35,14 @@ footer p {
     font-weight: 600;
     
 }
+
+.home-page{
+    display: flex;
+}
+
+.catalog{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vh;
+}
+
