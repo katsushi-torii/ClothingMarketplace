@@ -1,6 +1,6 @@
 <template>
     <form action="#">
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" placeholder="Search by name">
         <brand-select />
         <size-select />
         <color-select />
@@ -13,13 +13,13 @@
 </template>
 
 <script>
-import BrandSelect from './SelectBrand.vue'
-import SizeSelect from './SelectSize.vue'
-import ColorSelect from './SelectColor.vue'
-import GenderSelect from './SelectGender.vue'
-import PriceSelect from './SelectPrice.vue'
-import TypeSelect from './SelectType.vue'
-import SubTypeSelect from './SelectSubType.vue'
+import BrandSelect from '../filter/SelectBrand.vue'
+import SizeSelect from '../filter/SelectSize.vue'
+import ColorSelect from '../filter/SelectColor.vue'
+import GenderSelect from '../filter/SelectGender.vue'
+import PriceSelect from '../filter/SelectPrice.vue'
+import TypeSelect from '../filter/SelectType.vue'
+import SubTypeSelect from '../filter/SelectSubType.vue'
 
 export default{
     name:'FilterComp',
