@@ -2,6 +2,7 @@
   <div>
     <headerSection />
     <home-page />
+    <!-- <descriptionPage/> -->
     <footerSection />
   </div>
 </template>
@@ -10,17 +11,20 @@
 import FooterSection from './components/Footer.vue'
 import HeaderSection from './components/Header.vue'
 import homePage from './components/Page/homePage.vue'
+// import descriptionPage from './components/Page/descriptionPage.vue';
+
 
 export default {
   name: 'App',
   components:{
     HeaderSection,
     FooterSection,
+    // descriptionPage,
     homePage
   }
 }
 </script>
 
 <style>
-@import url("/src/css/style.css");
+@import url("../css/style.css");
 </style>
