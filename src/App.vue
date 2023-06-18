@@ -1,21 +1,21 @@
 <template>
   <div>
-    <headerSection />
+    <!-- <headerSection /> -->
     <home-page />
-    <footerSection />
+    <!-- <footerSection /> -->
   </div>
 </template>
 
 <script>
-import FooterSection from './components/Footer.vue'
-import HeaderSection from './components/Header.vue'
+// import FooterSection from './components/Footer.vue'
+// import HeaderSection from './components/Header.vue'
 import homePage from './components/Page/homePage.vue'
 
 export default {
   name: 'App',
   components:{
-    HeaderSection,
-    FooterSection,
+    // HeaderSection,
+    // FooterSection,
     homePage
   }
 }
