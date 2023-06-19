@@ -1,9 +1,9 @@
 <template>
   <div>
     <headerSection />
-    <!-- <home-page /> -->
+    <home-page />
     <!-- <descriptionPage/> -->
-    <addRoom/>
+    <!-- <addRoom/> -->
     <footerSection />
   </div>
 </template>
@@ -11,9 +11,9 @@
 <script>
 import FooterSection from './components/Footer.vue'
 import HeaderSection from './components/Header.vue'
-// import homePage from './components/Page/homePage.vue'
+import homePage from './components/Page/homePage.vue'
 // import descriptionPage from './components/Page/descriptionPage.vue';
-import addRoom from './components/Page/addRoom.vue'
+// import addRoom from './components/Page/addRoom.vue'
 
 
 export default {
@@ -21,9 +21,9 @@ export default {
   components:{
     HeaderSection,
     FooterSection,
+    homePage
     // descriptionPage,
-    addRoom
-    // homePage
+    // addRoom
   }
 }
 </script>

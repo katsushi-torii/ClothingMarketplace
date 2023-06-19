@@ -17,6 +17,7 @@
             <aside>
                 <label for="type">Type:</label>
                 <select name="type" id="type" required>
+                    <option selected disabled></option>
                     <optgroup label="Accessories">
                         <option value="Accessory Gift Set">Accessory Gift Set</option>
                         <option value="Messenger Bag">Messenger Bag</option>
@@ -189,6 +190,7 @@
             <aside>
                 <label for="gender">Gender:</label>
                 <select name="gender" id="gender" required>
+                    <option selected disabled></option>
                     <option value="Men">Men</option>
                     <option value="Women">Women</option>
                     <option value="Boys">Boys</option>
@@ -199,6 +201,7 @@
             <aside>
                 <label for="size">Size:</label>
                 <select name="size" id="size" required>
+                    <option selected disabled></option>
                     <option value="XS">XS</option>
                     <option value="S">S</option>
                     <option value="M">M</option>
