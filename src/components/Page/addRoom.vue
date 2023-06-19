@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../css/style.css">
-</head>
-<body>
-    <main class="addForm">
+<template>
+        <main class="addForm">
         <h2>Sell new Clothing</h2>
         <form action="#" enctype="multipart/form-data">
             <aside>
@@ -224,5 +216,12 @@
             <button type="submit">Upload</button>
         </form>
     </main>
-</body>
-</html>
+</template>
+
+<script>
+
+export default{
+    name:'addFormPage'
+}
+
+</script>
