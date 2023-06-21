@@ -2,6 +2,7 @@
   <div>
     <headerSection />
     <home-page />
+    <!-- <userPage /> -->
     <!-- <descriptionPage/> -->
     <!-- <addRoom/> -->
     <footerSection />
@@ -12,6 +13,7 @@
 import FooterSection from './components/Footer.vue'
 import HeaderSection from './components/Header.vue'
 import homePage from './components/Page/homePage.vue'
+// import UserPage from './components/Page/UserPage.vue'
 // import descriptionPage from './components/Page/descriptionPage.vue';
 // import addRoom from './components/Page/addRoom.vue'
 
@@ -21,7 +23,8 @@ export default {
   components:{
     HeaderSection,
     FooterSection,
-    homePage
+    homePage,
+    // UserPage,
     // descriptionPage,
     // addRoom
   }
