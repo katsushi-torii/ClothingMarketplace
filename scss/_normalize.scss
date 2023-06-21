@@ -67,9 +67,94 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2vh;
+    border-top: 2px solid dimgray;
+    background-image: linear-gradient($blue,white 20%);
+
+    h3{
+        font-weight: 600;
+        color: black;
+        letter-spacing: 1px;
+        font-size: 20px;
+        border-bottom: 2px solid dimgray;
+    }
 }
 
-footer p {
-    font-weight: 600;
+.about-footer{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3vh;
+    border-right: 2px solid $blue;
+    padding-right: 5%;
+
+
+    p{
+        font-style:italic;
+        line-height: 1.5;
+        font-weight: 600;
+        color: dimgray;
+        text-shadow: 0 0 5px $blue;
+    }
+
+}
+
+.contact-footer{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
+    align-items: center;
+
     
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        color: dimgray;
+
+        li{
+            font-weight: 600;
+        }
+
+        a{
+            color: black;
+            transition: .6s;
+            border-bottom: 2px solid transparent;
+
+            &:hover{
+                letter-spacing: 1px;
+                border-color: dimgray;
+            }
+        }
+    }
+
+    ol{
+        display: flex;
+        column-gap: 8vh;
+
+        a{
+            border: 1px solid $blue;
+            border-radius: 50%;
+            height: 5vh;
+            width: 5vh;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: dimgray;
+            transition: .6s;
+            box-shadow: 0 0 5px $blue;
+
+            &:hover{
+                color: $blue;
+                background-color: dimgray;
+                border-color: white;
+                box-shadow: 0 0 5px dimgray;
+                scale: .9;
+            }
+        }
+    }
 }
