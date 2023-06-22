@@ -3,15 +3,15 @@
         <section class="about-footer">
             <h3>About Us</h3>
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui eum dolore harum ut animi natus voluptas, velit nam cupiditate nesciunt, rem ipsum mollitia dignissimos quas similique, doloremque doloribus! Totam, maxime?
+                Karigui is a marketplace website for secondhand clothing that allows individuals to easily enjoy selling and buying things. We would like to express our gratitude to those who use our services.
             </p>
         </section>
         <section class="contact-footer">
             <h3>Contact</h3>
             <ul>
-                <li>mail: <a href="mailto:email@mail.com">email@mail.com</a></li>
-                <li>phone: <a href="tel:+(999)999-9999">(999)999-9999</a></li>
-                <li>adreess: 123 Main St, DonwTown</li>
+                <li>Mail: <a href="mailto:email@mail.com">karigui@mail.com</a></li>
+                <li>Phone: <a href="tel:+(999)999-9999">(999)999-9999</a></li>
+                <li>Address: 123 Main St, DownTown</li>
             </ul>
             <ol>
                 <li><a href="#" class="fa-brands fa-facebook-f"></a></li>
