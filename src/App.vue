@@ -1,27 +1,14 @@
 <template>
   <div>
-    <home-page />
-    <!-- <userPage /> -->
-    <!-- <descriptionPage/> -->
-    <!-- <addRoom/> -->
+    <router-view/>
+    <!-- from router.js -->
   </div>
 </template>
 
 <script>
-import homePage from './components/Page/homePage.vue'
-// import UserPage from './components/Page/UserPage.vue'
-// import descriptionPage from './components/Page/descriptionPage.vue';
-// import addRoom from './components/Page/addRoom.vue'
-
 
 export default {
-  name: 'App',
-  components:{
-    homePage,
-    // UserPage,
-    // descriptionPage,
-    // addRoom
-  }
+  name: 'App'
 }
 </script>
 

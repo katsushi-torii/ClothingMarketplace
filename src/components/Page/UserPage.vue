@@ -1,4 +1,5 @@
 <template>
+    <HeaderSection/>
     <section class="user-page">
         <figure class="user-profile">
             <img src="
@@ -54,15 +55,20 @@
             </div>
         </section>
     </section>
+    <FooterSection/>
 </template>
 
 <script>
 import ProductCard from '../ProductCard.vue';
+import FooterSection from '../Footer.vue';
+import HeaderSection from '../Header.vue';
 
 export default {
     name: 'UserPage',
     components: {
-        ProductCard
+        ProductCard,
+        FooterSection,
+        HeaderSection
     }
 }
 </script>
