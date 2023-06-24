@@ -21,9 +21,7 @@
                     <button hidden class="like" id="wishlist" onclick="test()"></button>
                 </section>
             </article>
-            <p>
-                Description of the product. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est dolor qui, obcaecati ipsam eveniet at quis atque ea fuga, minima necessitatibus sequi quidem dicta possimus aut magnam, sint illum eligendi.
-            </p>
+            <p></p>
         </section>
         <ul>
             <li>Size: <strong>27</strong></li>
@@ -50,8 +48,17 @@
 
 import Chat from './Chat.vue';
 
+import $ from 'jquery';
 export default{
     name: "DescriptionRight",
-    components: { Chat }
+    components: { Chat },
+    mounted: function(){
+        const brandName = "nike";
+        const size = 25;
+        function change(){
+            $('p').text(`I bought this at ${brandName} shop 2 years ago. However, I haven't used that much, so the condition of this product is pretty good. My size is ${size}, so it fit the official size.`);
+        }
+        change();
+    }
 }
 </script>
