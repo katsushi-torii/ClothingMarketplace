@@ -33,24 +33,45 @@ body{
     flex-direction: column;
 }
 
+.nav-link {
+    color: black;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    padding: 2vh 1vh;
+}
+
 header{
     display: flex;
     justify-content: center;
     background-color: $blue;
     align-items: center;
-    column-gap: 80%;
+    column-gap: 70%;
     height: 7vh;
     width: 100%;
     box-shadow: 5px 0 5px dimgray;
     position: fixed;
     z-index: 98;
 
+    > section {
+        display: flex;
+        align-items: center;
+    }
+
+    img {
+        width: 17vh;
+    }
+
+    > aside {
+        display: flex;
+        column-gap: 2vh;
+    }
+
     button{
-        padding: 1vh 0;
-        border-radius: 5px;
-        font-weight: 600;
         background-color: white;
         transition: .6s;
+        height: 4vh;
+        color: black;
 
         &:hover{
             box-shadow: 0 0 5px dimgray;
@@ -59,17 +80,13 @@ header{
     }
 }
 
-header button {
-    padding: 1vh;
-}
-
 footer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     padding: 2vh;
     border-top: 2px solid dimgray;
-    background-image: linear-gradient($blue,white 20%);
+    background-image: linear-gradient($blue,white 50%);
 
     h3{
         font-weight: 600;

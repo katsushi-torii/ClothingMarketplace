@@ -1,4 +1,5 @@
 <template>
+    <HeaderSection/>
         <main class="addForm">
         <h2>Sell new Clothing</h2>
         <form action="#" enctype="multipart/form-data">
@@ -219,12 +220,19 @@
             <button type="submit">Upload</button>
         </form>
     </main>
+    <FooterSection/>
 </template>
 
 <script>
+import FooterSection from '../Footer.vue';
+import HeaderSection from '../Header.vue';
 
 export default{
-    name:'addFormPage'
+    name:'addFormPage',
+    components:{
+        FooterSection,
+        HeaderSection
+    }
 }
 
 </script>
