@@ -18,6 +18,12 @@ export default {
     homePage
     // descriptionPage,
     // addRoom
+  },
+  data(){
+    return{
+      productsApi:'http://localhost:80/karigui/ClothingMarketplace/rest/api/V1/products.php',
+      productList:[]
+    }
   }
 }
 </script>
