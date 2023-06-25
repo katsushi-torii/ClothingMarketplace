@@ -6,24 +6,7 @@
             </div>
             <div class="container">
                 <div class="catalog">
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
-                    <product-card />
+                    <product-card v-for="product in productList" :key="product.productId" :product="product"/>
                 </div>
                 <footer-section />
             </div>
@@ -43,6 +26,9 @@ export default{
         FilterComp,
         FooterSection,
         HeaderSection
+    },
+    props:{
+        productList:[]
     }
 }
 </script>
