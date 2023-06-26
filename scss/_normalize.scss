@@ -1,0 +1,177 @@
+//previous project's font family, I will change later
+// @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    // font-family: 'Quicksand', sans-serif;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+p{
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+img{
+    width: 10%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-link {
+    color: black;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    padding: 2vh 1vh;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    background-color: $blue;
+    align-items: center;
+    column-gap: 70%;
+    height: 7vh;
+    width: 100%;
+    box-shadow: 5px 0 5px dimgray;
+    position: fixed;
+    z-index: 98;
+
+    > section {
+        display: flex;
+        align-items: center;
+    }
+
+    img {
+        width: 17vh;
+    }
+
+    > aside {
+        display: flex;
+        column-gap: 2vh;
+    }
+
+    button{
+        background-color: white;
+        transition: .6s;
+        height: 4vh;
+        color: black;
+
+        &:hover{
+            box-shadow: 0 0 5px dimgray;
+            scale: 1.05;
+        }
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 2vh;
+    border-top: 2px solid dimgray;
+    background-image: linear-gradient($blue,white 50%);
+
+    h3{
+        font-weight: 600;
+        color: black;
+        letter-spacing: 1px;
+        font-size: 20px;
+        border-bottom: 2px solid dimgray;
+    }
+}
+
+.about-footer{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 3vh;
+    border-right: 2px solid $blue;
+    padding-right: 5%;
+
+
+    p{
+        font-style:italic;
+        line-height: 1.5;
+        font-weight: 600;
+        color: dimgray;
+        text-shadow: 0 0 5px $blue;
+    }
+
+}
+
+.contact-footer{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3vh;
+    align-items: center;
+
+    
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        color: dimgray;
+
+        li{
+            font-weight: 600;
+        }
+
+        a{
+            color: black;
+            transition: .6s;
+            border-bottom: 2px solid transparent;
+
+            &:hover{
+                letter-spacing: 1px;
+                border-color: dimgray;
+            }
+        }
+    }
+
+    ol{
+        display: flex;
+        column-gap: 8vh;
+
+        a{
+            border: 1px solid $blue;
+            border-radius: 50%;
+            height: 5vh;
+            width: 5vh;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: dimgray;
+            transition: .6s;
+            box-shadow: 0 0 5px $blue;
+
+            &:hover{
+                color: $blue;
+                background-color: dimgray;
+                border-color: white;
+                box-shadow: 0 0 5px dimgray;
+                scale: .9;
+            }
+        }
+    }
+}

@@ -1,0 +1,222 @@
+.desBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description {
+    display: flex;
+    column-gap: 5vh;
+    padding: 10vh 0;
+    width: 120vh;
+}
+
+.desLeft {
+    width: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dSlideMain {
+    img {
+        width: 40vh;
+    }
+}
+
+.dSlideSub {
+    display: flex;
+    column-gap: 2px;
+
+    button {
+        width: 10vh;
+        height: 10vh;
+        overflow: hidden;
+        border: 1px solid $grey;
+        transition: .2s;
+        &:hover {
+            border-color: black;
+        }
+    }
+    
+    img {
+        width: 10vh;
+        height: 10vh;
+    }
+
+    .secPic {
+        transform: scale(-1, 1);
+    }
+
+    .thdPic {
+        scale: 1.5;
+    }
+    
+    .forPic {  
+        filter: grayscale(100%);
+    }
+}
+
+.desRight {
+    width: 70vh;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2vh;
+
+    h2 {
+        font-size: 32px;
+    }
+
+    > section {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+
+        > article {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1vh;
+        }
+
+        section {
+            display: flex;
+            align-items: center;
+            column-gap: 2vh;
+        }
+
+        button {
+            background-color: $blue;
+            padding: 3px 1vh;
+            font-weight: 600;
+            transition: .4s;
+            &:hover {
+                background-color: white;
+                color: red;
+            }
+        }
+
+        label {
+            color: red;
+            [class="fa-regular fa-heart"]{
+                font-size: 20px;
+            }
+            [class="fa-solid fa-heart"]{
+                font-size: 20px;
+                display: none;
+            }
+            //change to click function later
+            &:hover [class="fa-regular fa-heart"]{
+                display: none;
+            }
+            &:hover [class="fa-solid fa-heart"]{
+                display: block;
+            }
+        }
+
+        p {    
+            border: 2px solid $grey;
+            padding: 1vh;
+            text-align: justify;
+        }
+
+        span {
+            display: flex;
+            column-gap: 1vh;
+        }
+    }
+
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        padding-left: 1vh;
+
+        > li {
+            display: flex;
+            align-items: center;
+            column-gap: 1vh;
+        }
+    }
+
+    blockquote {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3vh;
+
+        img {
+            width: 7vh;
+            height: 7vh;
+            border-radius: 100%;
+        }
+
+        >figure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 4vh;
+            padding-bottom: 1vh;
+            border-bottom: 2px solid $grey;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            row-gap: 1vh;
+        }
+
+        textarea {
+            width: 68vh;
+            height: 15vh;
+            padding: 1vh;
+            border: 3px solid $grey;
+        }
+
+        button {
+            background-color: $blue;
+            padding: 3px 1vh;
+            font-weight: 600;
+            transition: .4s;
+            &:hover {
+                background-color: white;
+                color: red;
+            }
+        }
+    }
+}
+
+.comments {
+    > article {
+        display: flex;
+        flex-direction: column;
+        row-gap: 2vh;
+    }
+
+    figure {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    figcaption {
+        width: 85%;
+        text-align: justify;
+        border-radius: 10px;
+    }
+}
+
+.question {
+    figcaption {
+        background-color: $blue;
+        padding: 1vh;
+    }
+}
+
+.answer {
+    figcaption {
+        background-color: $grey;
+        padding: 1vh;
+    }
+}
