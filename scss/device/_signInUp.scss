@@ -1,0 +1,63 @@
+.sign-in {
+    height: 40vh;
+    padding-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    form {
+        // border: 1px solid red;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2vh;
+        width: 60vh;
+
+        >div {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        label {
+            font-size: 20px;
+        }
+
+        input {
+            width: 25vh;
+            padding: 0 1vh;
+            font-size: 14px;
+            // text-align: center;
+        }
+    }
+
+    .fileButton {
+        width: 27vh;
+        font-size: 14px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 3px solid black;
+        border-radius: 3px;
+        transition: .4s;
+
+        &:hover {
+            background-color: $blue;
+            color: white;
+        }
+    }
+
+    button {
+        width: 15vh;
+        height: 4vh;
+        align-self: center;
+        background-color: white;
+        font-weight: 600;
+        transition: .4s;
+        margin-top: 3vh;
+
+        &:hover {
+            background-color: $blue;
+            color: white;
+        }
+    }
+}
