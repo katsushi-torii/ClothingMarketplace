@@ -28,42 +28,57 @@ body {
   flex-direction: column;
 }
 
+.nav-link {
+  color: black;
+  font-weight: 600;
+  width: 100%;
+  height: 100%;
+  padding: 2vh 1vh;
+}
+
 header {
   display: flex;
   justify-content: center;
   background-color: rgb(213, 224, 226);
   align-items: center;
-  -moz-column-gap: 80%;
-       column-gap: 80%;
+  -moz-column-gap: 70%;
+       column-gap: 70%;
   height: 7vh;
   width: 100%;
   box-shadow: 5px 0 5px dimgray;
   position: fixed;
   z-index: 98;
 }
+header > section {
+  display: flex;
+  align-items: center;
+}
+header img {
+  width: 17vh;
+}
+header > aside {
+  display: flex;
+  -moz-column-gap: 2vh;
+       column-gap: 2vh;
+}
 header button {
-  padding: 1vh 0;
-  border-radius: 5px;
-  font-weight: 600;
   background-color: white;
   transition: 0.6s;
+  height: 4vh;
+  color: black;
 }
 header button:hover {
   box-shadow: 0 0 5px dimgray;
   scale: 1.05;
 }
 
-header button {
-  padding: 1vh;
-}
-
 footer {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   padding: 2vh;
   border-top: 2px solid dimgray;
-  background-image: linear-gradient(rgb(213, 224, 226), white 20%);
+  background-image: linear-gradient(rgb(213, 224, 226), white 50%);
 }
 footer h3 {
   font-weight: 600;
@@ -152,7 +167,7 @@ footer h3 {
 .filter {
   width: 20%;
   height: 93vh;
-  margin-top: 7vh;
+  margin-top: 7.15vh;
   background-color: rgb(213, 224, 226);
   box-shadow: 0 4px 5px dimgray;
   position: fixed;
@@ -259,6 +274,10 @@ footer h3 {
   align-items: center;
 }
 
+.dSlideMain {
+  overflow: hidden;
+  padding: 1px;
+}
 .dSlideMain img {
   width: 40vh;
 }
@@ -282,13 +301,16 @@ footer h3 {
   width: 10vh;
   height: 10vh;
 }
-.dSlideSub .secPic {
+
+.secPic {
   transform: scale(-1, 1);
 }
-.dSlideSub .thdPic {
+
+.thdPic {
   scale: 1.5;
 }
-.dSlideSub .forPic {
+
+.forPic {
   filter: grayscale(100%);
 }
 
@@ -501,6 +523,130 @@ footer h3 {
   margin-top: 3vh;
 }
 .addForm > form button:hover {
+  background-color: rgb(213, 224, 226);
+  color: white;
+}
+
+.user-page {
+  padding-top: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(213, 224, 226);
+}
+
+.user-profile {
+  width: 95%;
+  background-color: rgb(213, 224, 226);
+  height: 20vh;
+  border-bottom: 1px solid rgb(217, 217, 218);
+  padding: 10px;
+  display: flex;
+  position: fixed;
+  -moz-column-gap: 3vh;
+       column-gap: 3vh;
+}
+.user-profile img {
+  border-radius: 50%;
+  width: 20vh;
+  height: 20vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.user-profile figcaption {
+  width: 70%;
+}
+.user-profile aside {
+  height: 80%;
+  overflow: auto;
+  line-height: 1.5;
+}
+.user-profile article {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  -moz-column-gap: 1vw;
+       column-gap: 1vw;
+  overflow: auto;
+  flex-wrap: wrap;
+  color: blue;
+}
+
+.user-contents {
+  width: 95%;
+  display: flex;
+  padding-top: 22vh;
+}
+.user-contents .user-info {
+  padding-top: 3vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5vh;
+  width: 16%;
+  background-color: rgb(213, 224, 226);
+  padding-bottom: 2vh;
+}
+.user-contents .user-info aside {
+  width: 100%;
+  font-size: 20px;
+  border-bottom: 1px solid rgb(217, 217, 218);
+}
+.user-contents .catalog {
+  margin-top: 0;
+  padding-left: 20%;
+}
+
+.sign-in {
+  height: 40vh;
+  padding-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sign-in form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+  width: 60vh;
+}
+.sign-in form > div {
+  display: flex;
+  justify-content: space-between;
+}
+.sign-in form label {
+  font-size: 20px;
+}
+.sign-in form input {
+  width: 25vh;
+  padding: 0 1vh;
+  font-size: 14px;
+}
+.sign-in .fileButton {
+  width: 27vh;
+  font-size: 14px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+.sign-in .fileButton:hover {
+  background-color: rgb(213, 224, 226);
+  color: white;
+}
+.sign-in button {
+  width: 15vh;
+  height: 4vh;
+  align-self: center;
+  background-color: white;
+  font-weight: 600;
+  transition: 0.4s;
+  margin-top: 3vh;
+}
+.sign-in button:hover {
   background-color: rgb(213, 224, 226);
   color: white;
 }/*# sourceMappingURL=style.css.map */
