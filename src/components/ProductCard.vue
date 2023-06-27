@@ -1,6 +1,6 @@
 <template>
     <figure class="product-card">
-        <router-link class="nav-link" to="/product">
+        <router-link class="nav-link" :to="`/product?product='${product.productId}'`">
             
             <img :src="product.image" :alt="product.productName">
             <figcaption>
