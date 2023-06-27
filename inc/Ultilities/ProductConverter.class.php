@@ -32,7 +32,7 @@ class ProductConverter {
                 $stdObj->price = $newProduct[$i]->getPrice();
                 $stdObj->size = $newProduct[$i]->getSize();
                 $stdObj->userId = $newProduct[$i]->getUserId();
-                $stdObj->iamge = $newProduct[$i]->getImage();
+                $stdObj->image = $newProduct[$i]->getImage();
                 
                 $objList[] = $stdObj;
             }
