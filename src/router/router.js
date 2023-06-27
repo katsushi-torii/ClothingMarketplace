@@ -23,11 +23,6 @@ const routes = [
         component: descriptionPage
     },
     {
-        path: "/product/:id",
-        name: "descriptionPage",
-        component: descriptionPage
-    },
-    {
         path: "/addForm",
         name: "addForm",
         component: addForm

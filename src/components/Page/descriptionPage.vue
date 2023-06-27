@@ -11,6 +11,10 @@
 
 <script>
 
+let url = new URL(window.location.href);
+let params = url.searchParams;
+let productId = params.get('productId');
+
 import DescriptionLeft from '../description/DescriptionLeft.vue';
 import DescriptionRight from '../description/DescriptionRight.vue';
 import FooterSection from '../Footer.vue';
@@ -23,9 +27,25 @@ export default{
     DescriptionRight,
     FooterSection,
     HeaderSection
-    }, 
-    props:{
+    },
+    data(){
+        return{
+        descriptionApi:`http://localhost:80/karigui/rest/api/V1/description.php?productId=${productId}`,
         descriptionData:{}
+        }
+    },
+    methods:{
+        async getDescriptionData(){
+        try{
+            let result = await fetch(this.descriptionApi);
+            this.descriptionData = await result.json();
+        }catch(error){
+            console.log(error);
+        }
+        }
+    },
+    created(){
+        this.getDescriptionData();
     }
 
 }
