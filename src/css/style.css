@@ -236,4 +236,271 @@ footer h3 {
 }
 .product-card span {
   font-weight: 600;
+}
+
+.desBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.description {
+  display: flex;
+  -moz-column-gap: 5vh;
+       column-gap: 5vh;
+  padding: 10vh 0;
+  width: 120vh;
+}
+
+.desLeft {
+  width: 45vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dSlideMain img {
+  width: 40vh;
+}
+
+.dSlideSub {
+  display: flex;
+  -moz-column-gap: 2px;
+       column-gap: 2px;
+}
+.dSlideSub button {
+  width: 10vh;
+  height: 10vh;
+  overflow: hidden;
+  border: 1px solid rgb(217, 217, 218);
+  transition: 0.2s;
+}
+.dSlideSub button:hover {
+  border-color: black;
+}
+.dSlideSub img {
+  width: 10vh;
+  height: 10vh;
+}
+.dSlideSub .secPic {
+  transform: scale(-1, 1);
+}
+.dSlideSub .thdPic {
+  scale: 1.5;
+}
+.dSlideSub .forPic {
+  filter: grayscale(100%);
+}
+
+.desRight {
+  width: 70vh;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+}
+.desRight h2 {
+  font-size: 32px;
+}
+.desRight > section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vh;
+}
+.desRight > section > article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1vh;
+}
+.desRight > section section {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 2vh;
+       column-gap: 2vh;
+}
+.desRight > section button {
+  background-color: rgb(213, 224, 226);
+  padding: 3px 1vh;
+  font-weight: 600;
+  transition: 0.4s;
+}
+.desRight > section button:hover {
+  background-color: white;
+  color: red;
+}
+.desRight > section label {
+  color: red;
+}
+.desRight > section label [class="fa-regular fa-heart"] {
+  font-size: 20px;
+}
+.desRight > section label [class="fa-solid fa-heart"] {
+  font-size: 20px;
+  display: none;
+}
+.desRight > section label:hover [class="fa-regular fa-heart"] {
+  display: none;
+}
+.desRight > section label:hover [class="fa-solid fa-heart"] {
+  display: block;
+}
+.desRight > section p {
+  border: 2px solid rgb(217, 217, 218);
+  padding: 1vh;
+  text-align: justify;
+}
+.desRight > section span {
+  display: flex;
+  -moz-column-gap: 1vh;
+       column-gap: 1vh;
+}
+.desRight ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1vh;
+  padding-left: 1vh;
+}
+.desRight ul > li {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 1vh;
+       column-gap: 1vh;
+}
+.desRight blockquote {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3vh;
+}
+.desRight blockquote img {
+  width: 7vh;
+  height: 7vh;
+  border-radius: 100%;
+}
+.desRight blockquote > figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 4vh;
+       column-gap: 4vh;
+  padding-bottom: 1vh;
+  border-bottom: 2px solid rgb(217, 217, 218);
+}
+.desRight blockquote form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  row-gap: 1vh;
+}
+.desRight blockquote textarea {
+  width: 68vh;
+  height: 15vh;
+  padding: 1vh;
+  border: 3px solid rgb(217, 217, 218);
+}
+.desRight blockquote button {
+  background-color: rgb(213, 224, 226);
+  padding: 3px 1vh;
+  font-weight: 600;
+  transition: 0.4s;
+}
+.desRight blockquote button:hover {
+  background-color: white;
+  color: red;
+}
+
+.comments > article {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+}
+.comments figure {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.comments figcaption {
+  width: 85%;
+  text-align: justify;
+  border-radius: 10px;
+}
+
+.question figcaption {
+  background-color: rgb(213, 224, 226);
+  padding: 1vh;
+}
+
+.answer figcaption {
+  background-color: rgb(217, 217, 218);
+  padding: 1vh;
+}
+
+.addForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 7vh;
+  padding: 10vh 0;
+  background-color: rgb(213, 224, 226);
+}
+.addForm > h2 {
+  font-size: 32px;
+}
+.addForm > form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2vh;
+  width: 60vh;
+}
+.addForm > form > aside {
+  display: flex;
+  justify-content: space-between;
+}
+.addForm > form label {
+  font-size: 20px;
+}
+.addForm > form input {
+  width: 25vh;
+  padding: 0 1vh;
+  font-size: 14px;
+  text-align: center;
+}
+.addForm > form select {
+  width: 27.5vh;
+  text-align: center;
+  font-size: 14px;
+  transition: 0.4s;
+}
+.addForm > form optgroup {
+  text-align: left;
+}
+.addForm > form option {
+  text-align: center;
+}
+.addForm > form .fileButton {
+  width: 27vh;
+  font-size: 14px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid black;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+.addForm > form .fileButton:hover {
+  background-color: rgb(213, 224, 226);
+  color: white;
+}
+.addForm > form button {
+  width: 15vh;
+  height: 4vh;
+  align-self: center;
+  background-color: white;
+  font-weight: 600;
+  transition: 0.4s;
+  margin-top: 3vh;
+}
+.addForm > form button:hover {
+  background-color: rgb(213, 224, 226);
+  color: white;
 }/*# sourceMappingURL=style.css.map */

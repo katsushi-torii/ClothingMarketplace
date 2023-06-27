@@ -13,12 +13,12 @@
             <button>
                 <router-link class="nav-link" to="/addForm">Add Product</router-link>
             </button>
-            <!-- <button>
-                <router-link class="nav-link" to="/">Sign In</router-link>
+            <button>
+                <router-link class="nav-link" to="/signIn">Sign In</router-link>
             </button>
             <button>
-                <router-link class="nav-link" to="/">Sign Up</router-link>
-            </button> -->
+                <router-link class="nav-link" to="/signUp">Sign Up</router-link>
+            </button>
         </aside>
     </header>
 </template>
