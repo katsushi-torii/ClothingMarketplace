@@ -1,13 +1,13 @@
 <template>
     <section class="desRight">
-        <h2>Title of the clothing including brand title title title</h2>
+        <h2>{{descriptionData.productName}}</h2>
         <section>
             <article>
                 <section>
-                    <h3>$100</h3>
+                    <h3>${{descriptionData.price}}</h3>
                     <span>
-                        <h4>Shoes,</h4>
-                        <h4>Casual Shoes</h4>
+                        <h4>{{descriptionData.category}},</h4>
+                        <h4>{{descriptionData.type}}</h4>
                     </span>
                 </section>
                 <section>
@@ -21,19 +21,17 @@
                     <button hidden class="like" id="wishlist" onclick="test()"></button>
                 </section>
             </article>
-            <p>
-                Description of the product. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est dolor qui, obcaecati ipsam eveniet at quis atque ea fuga, minima necessitatibus sequi quidem dicta possimus aut magnam, sint illum eligendi.
-            </p>
+            <p>I bought this at online shop 2 years ago. However, I haven't used that much, so the condition of this product is pretty good. My size is {{ descriptionData.size }}, so it fit the official size.</p>
         </section>
         <ul>
-            <li>Size: <strong>27</strong></li>
-            <li>Color: <strong>Brown</strong></li>
-            <li>Gender: <strong>Men</strong></li>
+            <li>Size: <strong>{{descriptionData.size}}</strong></li>
+            <li>Color: <strong>{{descriptionData.baseColor}}</strong></li>
+            <li>Gender: <strong>{{descriptionData.gender}}</strong></li>
         </ul>
         <blockquote>
             <figure>
-                <figcaption><h3>Sold by: Einstein</h3></figcaption>
-                <img src="https://i.pinimg.com/736x/3f/d0/c2/3fd0c2a7864af5fcb9cc86738dd4a0ff.jpg" alt="">
+                <figcaption><h3>Sold by: {{descriptionData.userName}}</h3></figcaption>
+                <img :src="descriptionData.userAvatar" alt="">
             </figure>
             <section class="comments">
                 <Chat/>
@@ -52,6 +50,9 @@ import Chat from './Chat.vue';
 
 export default{
     name: "DescriptionRight",
-    components: { Chat }
+    components: { Chat },
+    props:{
+        descriptionData:{}
+    }
 }
 </script>

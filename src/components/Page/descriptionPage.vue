@@ -2,8 +2,8 @@
     <HeaderSection/>
     <main class="desBody">
         <section class="description">
-            <DescriptionLeft/>
-            <DescriptionRight/>
+            <DescriptionLeft :descriptionData="this.descriptionData"/>
+            <DescriptionRight :descriptionData="this.descriptionData"/>
         </section>
     </main>
     <FooterSection/>
@@ -23,7 +23,11 @@ export default{
     DescriptionRight,
     FooterSection,
     HeaderSection
-}
+    }, 
+    props:{
+        descriptionData:{}
+    }
+
 }
 
 </script>

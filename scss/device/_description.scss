@@ -19,6 +19,8 @@
 }
 
 .dSlideMain {
+    overflow: hidden;
+    padding: 1px;
     img {
         width: 40vh;
     }
@@ -44,17 +46,18 @@
         height: 10vh;
     }
 
-    .secPic {
-        transform: scale(-1, 1);
-    }
+}
 
-    .thdPic {
-        scale: 1.5;
-    }
-    
-    .forPic {  
-        filter: grayscale(100%);
-    }
+.secPic {
+    transform: scale(-1, 1);
+}
+
+.thdPic {
+    scale: 1.5;
+}
+
+.forPic {  
+    filter: grayscale(100%);
 }
 
 .desRight {
