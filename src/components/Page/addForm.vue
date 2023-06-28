@@ -2,22 +2,22 @@
     <HeaderSection/>
         <main class="addForm">
         <h2>Sell new Clothing</h2>
-        <form action="#" enctype="multipart/form-data">
+        <form enctype="multipart/form-data" v-on:submit.prevent="postProduct">
             <aside>
                 <label for="pName">Product name:</label>
-                <input type="text" name="pName" id="pName" required>
+                <input type="text" name="pName" id="pName" required v-model.lazy="productObj.productName">
             </aside>
             <aside>
                 <label for="price">Price:</label>
-                <input type="number" name="price" id="price" required>
+                <input type="number" name="price" id="price" required v-model.lazy="productObj.price">
             </aside>
             <aside>
                 <label for="color">Color:</label>
-                <input type="text" name="color" id="color" required>
+                <input type="text" name="color" id="color" required v-model.lazy="productObj.baseColor">
             </aside>
             <aside>
                 <label for="gender">Gender:</label>
-                <select name="gender" id="gender" required>
+                <select name="gender" id="gender" required v-model.lazy="productObj.gender">
                     <option selected disabled></option>
                     <option value="Men">Men</option>
                     <option value="Women">Women</option>
@@ -28,9 +28,9 @@
             </aside>
             <aside>
                 <label for="type">Type:</label>
-                <select name="type" id="type" required>
+                <select @change="typechange" ref="type" name="type" id="type" required v-model.lazy="productObj.type">
                     <option selected disabled></option>
-                    <optgroup label="Accessories" id="Accessories">
+                    <optgroup label="Accessories">
                         <option value="Accessory Gift Set">Accessory Gift Set</option>
                         <option value="Backpacks">Backpacks</option>
                         <option value="Bangle">Bangle</option>
@@ -55,7 +55,7 @@
                         <option value="Travel Accessory">Travel Accessory</option>
                         <option value="Trolley Bag">Trolley Bag</option>
                     </optgroup>
-                    <optgroup label="Bottomwear" id="Bottomwear">
+                    <optgroup label="Bottomwear">
                         <option value="Capris">Capris</option>
                         <option value="Jeans">Jeans</option>
                         <option value="Leggings">Leggings</option>
@@ -69,7 +69,7 @@
                         <option value="Tracksuits">Tracksuits</option>
                         <option value="Trousers">Trousers</option>
                     </optgroup>
-                    <optgroup label="Shoes" id="Shoes">
+                    <optgroup label="Shoes">
                         <option value="Casual Shoes">Casual Shoes</option>
                         <option value="Flats">Flats</option>
                         <option value="Flip Flops">Flip Flops</option>
@@ -79,7 +79,7 @@
                         <option value="Sports Sandals">Sports Sandals</option>
                         <option value="Sports Shoes">Sports Shoes</option>
                     </optgroup>
-                    <optgroup label="Topwear" id="Topwear">
+                    <optgroup label="Topwear">
                         <option value="Baby Dolls">Baby Dolls</option>
                         <option value="Bath Robe">Bath Robe</option>
                         <option value="Blazers">Blazers</option>
@@ -148,31 +148,88 @@ export default{
     components:{
         FooterSection,
         HeaderSection
+    },  
+    data() {
+        return {
+        productApi: "http://localhost:80/karigui/rest/api/V1/addForm.php",
+        
+        productObj: {
+            productName: "",
+            price: "",
+            baseColor: "",
+            gender: "",
+            category: "",
+            type: "",
+            size: ""
+        },
+        categoryObj: {
+            "Caps":"Accessories"
+        }
+        }
     },
-    mounted: function() {
-        $('[name="type"]').change(function(){
-            switch($(`option[value="${$(this).val()}"]`).parent().attr('id')) {
+    methods: {
+        async postProduct() {
+            const index = this.$refs['type'].selectedIndex;
+            const option = this.$refs['type'].options[index];
+            const optgroup = option.parentElement;
+            const category = optgroup.getAttribute("label");
+            console.log(category);
+
+            switch(category) {
+                case "Shoes":
+                    this.productObj.size= $('.footSize').val().toString();
+                    break;
+                case "Accessories":
+                    this.productObj.size= "Unique";
+                    break;
+                default:
+                    this.productObj.size= $('.normalSize').val();
+                    break;
+            }
+            try {
+                console.log(this.productObj);
+                await fetch(
+                this.productApi,
+                {
+                    method: "POST",
+                    body: JSON.stringify(this.productObj)
+                }
+                ).then((response) => response.text()
+                ).then((data) => {
+                console.log(data);
+                window.location.replace( "./profile" );
+                });
+            } catch(error) {
+                console.log(error);
+            }
+        },
+        typechange(e){
+            const index= e.target.selectedIndex;
+            const option = e.target.options[index];
+            const optgroup = option.parentElement;
+            const category = optgroup.getAttribute("label");
+            this.productObj.category= category;
+
+            switch(category) {
                 case "Shoes":
                     $('.normalSize').hide();
-                    $('.normalSize').val("");
-                    $('.noSize').hide();
+                    $('.noSize').hide();    
                     $('.footSize').show();
                     break;
                 case "Accessories":
                     $('.normalSize').hide();
-                    $('.normalSize').val("");
                     $('.footSize').hide();
-                    $('.footSize').val("");
                     $('.noSize').show();
                     break;
                 default:
                     $('.footSize').hide();
-                    $('.footSize').val("");
                     $('.noSize').hide();
                     $('.normalSize').show();
                     break;
             }
-        })
+        },
+
+
     }
 }
 </script>

@@ -40,18 +40,6 @@
                 </aside>
             </article>
             <div class="catalog">
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
-                <ProductCard />
             </div>
         </section>
     </section>
@@ -59,14 +47,12 @@
 </template>
 
 <script>
-import ProductCard from '../ProductCard.vue';
 import FooterSection from '../Footer.vue';
 import HeaderSection from '../Header.vue';
 
 export default {
     name: 'UserPage',
     components: {
-        ProductCard,
         FooterSection,
         HeaderSection
     }

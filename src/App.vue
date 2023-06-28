@@ -11,7 +11,7 @@ export default {
   name: 'App',
   data(){
     return{
-      productApi:'http://localhost:80/karigui/rest-api/rest/api/V1/products.php',
+      productApi:'http://localhost:80/karigui/rest/api/V1/products.php',
       productList:[]
     }
   },
@@ -20,7 +20,7 @@ export default {
       try{
         let result = await fetch(this.productApi);
         this.productList = await result.json();
-        console.log(this.productList);
+        // console.log(this.productList);
       }catch(error){
         console.log(error);
       }
@@ -33,5 +33,5 @@ export default {
 </script>
 
 <style>
-@import url("./css/style.css");
+@import url("../css/style.css");
 </style>
