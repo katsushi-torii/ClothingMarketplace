@@ -74,9 +74,9 @@
     display: flex;
     flex-direction: column;
     row-gap: 2vh;
+    transition: .6s;
     
     img{
-        transition: .6s;
         box-shadow: 0 0 5px $blue;
         width: 100%;
     }
@@ -89,6 +89,7 @@
     figcaption{
         display: flex;
         flex-direction: column;
+        padding: 1vh;
     }
 
     p{
