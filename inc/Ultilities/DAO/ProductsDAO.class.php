@@ -89,4 +89,25 @@ class ProductDAO {
         return self::$db->lastIsentItem();
     }
 
+    public static function insertTest( Product $product){
+
+        $sql = "INSERT INTO test (gender,category,type,color,name,price,size) VALUE(:gender,:category,:type,:color,:name,:price,:size)";
+    
+        self::$db->query($sql);
+    
+        // self::$db->bind(':pId',$product->getProductId());
+        self::$db->bind(':gender',$product->getGender());
+        self::$db->bind(':category',$product->getCategory());
+        self::$db->bind(':type',$product->getType());
+        self::$db->bind(':color',$product->getBaseColor());
+        self::$db->bind(':name',$product->getProductName());
+        self::$db->bind(':price',$product->getPrice());
+        self::$db->bind(':size',$product->getSize());
+        // self::$db->bind(':userId',$product->getUserId());
+        // self::$db->bind(':image',$product->getImage());
+    
+        self::$db->execute();
+    
+        return self::$db->lastInsertId();
+    }
 }
