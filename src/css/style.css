@@ -238,7 +238,7 @@ footer h3 {
   box-shadow: 0 0 5px rgb(213, 224, 226);
   width: 100%;
 }
-.product-card:hover img {
+.product-card:hover {
   box-shadow: 0 0 10px dimgray;
   scale: 1.05;
 }
