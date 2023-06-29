@@ -31,7 +31,9 @@
         <blockquote>
             <figure>
                 <figcaption><h3>Sold by: {{descriptionData.userName}}</h3></figcaption>
-                <img :src="descriptionData.userAvatar" alt="">
+                <router-link :to="`/profile?userId=${descriptionData.userId}`">
+                    <img :src="descriptionData.userAvatar" alt="">
+                </router-link>
             </figure>
             <section class="comments">
                 <Chat/>
