@@ -11,7 +11,7 @@ class ProductDAO {
     
     public static function getAllProducts(){
         
-        $sql = "SELECT * FROM products LIMIT 20";
+        $sql = "SELECT * FROM products";
 
         self::$db->query($sql);
 

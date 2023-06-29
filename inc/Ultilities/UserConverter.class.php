@@ -20,4 +20,17 @@ class UserProductConverter {
 
         return $stdObj;
     }
+    static function convertUser($user){
+        $stdObj = new stdClass;
+
+        $stdObj->userId = $user->getUserId();
+        $stdObj->email = $user->getEmail();
+        $stdObj->userName = $user->getUserName();
+        $stdObj->password = $user->getPassword();
+        $stdObj->userAvatar = $user->getUserAvatar();   
+
+        return $stdObj;
+    }
+
+
 }
