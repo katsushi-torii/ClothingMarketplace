@@ -11,7 +11,7 @@ class ProductDAO {
     
     public static function getAllProducts(){
         
-        $sql = "SELECT * FROM products LIMIT 20";
+        $sql = "SELECT * FROM products";
 
         self::$db->query($sql);
 
@@ -20,7 +20,7 @@ class ProductDAO {
         return self::$db->resultSet();
     }
 
-    public static function getProductById( int $id){
+    public static function getProductById( int $id ){
 
         $sql = "SELECT * FROM products WHERE productId=:id";
 
@@ -35,7 +35,7 @@ class ProductDAO {
 
     public static function deleteProductById( int $id){
 
-        $sql = "DELETE FROM products WHERE productId=:id";
+        $sql = "DELETE FROM products WHERE productId=:id"; 
 
         self::$db->query($sql);
 
@@ -87,6 +87,74 @@ class ProductDAO {
         self::$db->execute();
 
         return self::$db->lastIsentItem();
+    }
+
+    public static function getGenders(){
+
+        $sql = 'SELECT DISTINCT gender FROM products';
+
+        self::$db->query($sql);
+
+        self::$db->execute();
+
+        return self::$db->resultSet();
+        
+    }
+
+    public static function getCategory(){
+
+        $sql = 'SELECT DISTINCT category FROM products';
+
+        self::$db->query($sql);
+
+        self::$db->execute();
+
+        return self::$db->resultSet();
+
+    }
+
+    public static function getType(){
+
+        $sql = 'SELECT DISTINCT type FROM products';
+
+        self::$db->query($sql);
+
+        self::$db->execute();
+
+        return self::$db->resultSet();
+
+    }
+
+    public static function getBaseColor(){
+
+        $sql = 'SELECT DISTINCT baseColor FROM products';
+
+        self::$db->query($sql);
+
+        self::$db->execute();
+
+        return self::$db->resultSet();
+
+    }
+
+    public static function getSize(){
+
+        $sql = 'SELECT DISTINCT size FROM products';
+
+        self::$db->query($sql);
+
+        self::$db->execute();
+
+        return self::$db->resultSet();
+
+    }
+
+    public static function getProductsFilter($filter){
+
+        $sql = 'SELECT * FROM products WHERE';
+
+        $params = [];
+
     }
 
 }
