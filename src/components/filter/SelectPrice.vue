@@ -1,10 +1,11 @@
 <template>
     <select name="price" id="price" v-model="price" @change="$emit('input',price)">
         <option value="all" selected>Select Price</option>
-        <option value="0_100">$0 to 100</option>
-        <option value="101_200">$101 to 200</option>
-        <option value="201_300">$201 to 300</option>
-        <option value="301_400">$301 to 400</option>
+        <option value="0_50">...$50</option>
+        <option value="51_100">$51 to 100</option>
+        <option value="101_150">$101 to 150</option>
+        <option value="151_200">$151 to 200</option>
+        <option value="201_99999999">$200...</option>
     </select>
 </template>
 

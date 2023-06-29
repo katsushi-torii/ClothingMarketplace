@@ -1,5 +1,5 @@
 <template>
-    <form action="#" v-on:submit.prevent="$emit()">
+    <form action="#" v-on:submit.prevent="$emit('filter',filter)">
         <input type="text" name="name" id="name" placeholder="Search by name" v-model="filter.name">
         <size-select :opts="filterOpt.size" v-model="filter.size"/>
         <color-select :opts="filterOpt.baseColor" v-model="filter.color"/>
@@ -31,12 +31,12 @@ export default{
             fitlerApi:'http://localhost/karigui/rest-api/rest/api/v1/filter.php',
             filterOpt:[],
             filter:{
-                color: '',
-                size: '',
-                name: '',
-                gender: '',
-                price: '',
-                type: ''
+                color: 'all',
+                size: 'all',
+                name: 'all',
+                gender: 'all',
+                price: 'all',
+                type: 'all'
             }
         }
     },
