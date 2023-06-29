@@ -8,7 +8,8 @@
                 <router-link class="nav-link" to="/">Home</router-link>
             </button>
             <button>
-                <router-link class="nav-link" to="/profile">Profile</router-link>
+                <router-link class="nav-link" :to="`/profile?userId=340`">Profile</router-link>
+                <!-- <router-link class="nav-link" to="/profile">Profile</router-link> -->
             </button>
             <button>
                 <router-link class="nav-link" to="/addForm">Add Product</router-link>
