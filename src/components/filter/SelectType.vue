@@ -1,14 +1,15 @@
 <template>
-    <select name="type" id="type">
-        <option value="type1">type1</option>
-        <option value="type2">type2</option>
-        <option value="type3">type3</option>
-        <option value="type4">type4</option>
+    <select name="type" id="type" v-model="type" @change="$emit('input',type)">
+        <option value="all" selected>Select Type</option>
+        <option v-for="opt in opts" :key="opt" :value="opt">{{ opt }}</option>
     </select>
 </template>
 
 <script>
 export default{
-    name:'TypeSelect'
+    name:'TypeSelect',
+     props:{
+        opts:[]
+    }
 }
 </script>

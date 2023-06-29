@@ -29,6 +29,9 @@ export default{
     },
     props:{
         productList:[]
+    },
+    data(){
+        
     }
 }
 </script>
