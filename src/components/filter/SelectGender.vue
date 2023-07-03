@@ -1,12 +1,15 @@
 <template>
-    <select name="gender" id="gender">
-        <option value="male">Male</option>
-        <option value="famale">Famale</option>
+    <select name="gender" id="gender" v-model="gender" @change="$emit('input',gender)">
+        <option value="all" selected>Select Gender</option>
+        <option v-for="opt in opts" :key="opt" :value="opt">{{ opt }}</option>
     </select>
 </template>
 
 <script>
 export default{
-    name:'GenderSelect'
+    name:'GenderSelect',
+     props:{
+        opts:[]
+    },
 }
 </script>

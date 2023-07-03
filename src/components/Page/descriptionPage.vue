@@ -30,7 +30,7 @@ export default{
     },
     data(){
         return{
-        descriptionApi:`http://localhost:80/karigui/rest/api/V1/description.php?productId=${productId}`,
+        descriptionApi:`http://localhost:80/karigui/rest-api/rest/api/V1/description.php?productId=${productId}`,
         descriptionData:{}
         }
     },
