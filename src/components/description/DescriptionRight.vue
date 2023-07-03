@@ -18,7 +18,7 @@
                         <i class="fa-regular fa-heart"></i>
                         <i class="fa-solid fa-heart"></i>
                     </label>
-                    <button hidden class="like" id="wishlist" onclick="test()"></button>
+                    <button hidden class="like" id="wishlist"></button>
                 </section>
             </article>
             <p>I bought this at online shop 2 years ago. However, I haven't used that much, so the condition of this product is pretty good. My size is {{ descriptionData.size }}, so it fit the official size.</p>
@@ -36,17 +36,22 @@
                 </router-link>
             </figure>
             <section class="comments">
-                <Chat/>
+                <Chat v-for="chatList in chatData" :key="chatList[0]" :chatList="chatList" :descriptionData="this.descriptionData" @selectedChatId="getChatId"/>
             </section>
-            <form action="#">
-                <textarea name="comment" id="comment" placeholder="Write your comment"></textarea>
-                <button type="submit">Submit</button>
+            <form v-on:submit.prevent="postMessage">
+                <textarea name="comment" id="comment" placeholder="Write your comment" v-model.lazy="messageObj.message" required></textarea>
+                <button ref="submitButton" type="submit">Submit</button>
             </form>
         </blockquote>
     </section>
 </template>
 
 <script>
+
+let url = new URL(window.location.href);
+let params = url.searchParams;
+let productId = params.get('productId');
+let loginUser = 101; //chage to session later
 
 import Chat from './Chat.vue';
 
@@ -55,6 +60,71 @@ export default{
     components: { Chat },
     props:{
         descriptionData:{}
+    },
+    data(){
+        return{
+            chatApi:`http://localhost:80/karigui/rest-api/rest/api/V1/chat.php?productId=${productId}`,
+            chatData:[],
+            selectedChatId: 0,
+
+            messageObj:{
+                message: "",
+                senderId: "",
+                productId: "",
+                chatId: 0
+            }
+        }
+    },
+    methods:{
+        async getChatData(){
+            if(this.descriptionData.userId == loginUser){
+                this.$refs.submitButton.style.display = "none";
+            }
+            try{
+                let result = await fetch(this.chatApi);
+                this.chatData = await result.json();
+            }catch(error){
+                console.log(error);
+            }
+        },
+        getChatId(chatId){
+            this.selectedChatId = chatId;
+            this.$refs.submitButton.style.display = "block";
+        },
+        async postMessage(){
+            this.messageObj.productId = productId;
+            this.messageObj.senderId= loginUser;
+            if(this.messageObj.senderId == this.descriptionData.userId){
+            //if sender is product owner
+                this.messageObj.chatId = this.selectedChatId;
+            }else{
+                for(let i=0; i < this.chatData.length; i++){
+                    if(this.messageObj.senderId == (this.chatData[i])[0].senderId){
+                    //if sender already is an existed questioner
+                        this.messageObj.chatId = (this.chatData[i])[0].chatId;
+                    }
+                }
+            }
+            try {
+                console.log(this.messageObj);
+                await fetch(
+                this.chatApi,
+                {
+                    method: "POST",
+                    body: JSON.stringify(this.messageObj)
+                }
+                ).then((response) => response.text()
+                ).then((data) => {
+                console.log(data);
+                });
+            } catch(error) {
+                console.log(error);
+            }
+            // location.reload();
+        }
+    },
+    mounted(){
+        this.getChatData();
     }
 }
 </script>
