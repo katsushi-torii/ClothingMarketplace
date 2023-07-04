@@ -1,7 +1,8 @@
 <?php
 
-//for description page
 class UserProductConverter {
+
+    //for description page
     static function convertUserProduct($newUser,$newProduct){
         $stdObj = new stdClass;
 
@@ -20,6 +21,7 @@ class UserProductConverter {
 
         return $stdObj;
     }
+    
     static function convertUser($user){
         $stdObj = new stdClass;
 
