@@ -27,8 +27,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $data = json_decode(file_get_contents('php://input'));
     $convertedData = MessageConverter::convertToObj($data);
     if($convertedData->getChatId() == 0){
-        MessageDAO::insertToChat($convertedData);
-        $newChatId = MessageDAO::getNewChatId()->getChatId();
+        $maxChatId = MessageDAO::getMaxChatId()->getChatId();
+        MessageDAO::insertToChat($maxChatId+1, $convertedData);
+        $newChatId = MessageDAO::getMaxChatId()->getChatId();
         MessageDAO::insertToMessage($newChatId,$convertedData);
     }else{
         MessageDAO::insertToMessage2($convertedData);
