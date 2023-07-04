@@ -16,10 +16,11 @@ $method = $_SERVER["REQUEST_METHOD"];
 
 switch($method) {
     case "POST":
+        $maxIdProduct = ProductDAO::getMaxProductId();
+        $newId = $maxIdProduct->getProductId() + 1;
         $data = json_decode(file_get_contents('php://input'));
-        ProductDAO::insertTest(
-            ProductConverter::convertToObj($data)
+        ProductDAO::insertProduct(
+            $newId, ProductConverter::convertToObj($data)
         );
-        // header("Location: http://localhost:8080");
     break;
 }

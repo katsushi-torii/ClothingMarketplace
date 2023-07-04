@@ -33,26 +33,22 @@ class ProductDAO {
         return self::$db->singleResult();
     }
 
-    public static function deleteProductById( int $id){
-
-        $sql = "DELETE FROM products WHERE productId=:id";
+    public static function getMaxProductId() {
+        $sql = "SELECT productId FROM products ORDER BY productId DESC LIMIT 1";
 
         self::$db->query($sql);
-
-        self::$db->bind(':id',$id);
-
         self::$db->execute();
 
         return self::$db->singleResult();
     }
 
-    public static function updateProductById( Product $product){
+    public static function insertProduct(int $productId, Product $product){
 
-        $sql = "UPDATE products SET gender=:gender,category=:category,type=:type,baseColor=:color,productName=:name,price=:price,size=:size,userId=:userId,image=:image WHERE productId=:id";
-
+        $sql = "INSERT INTO products (productId,gender,category,type,baseColor,productName,price,size,userId,image) VALUE(:productId,:gender,:category,:type,:color,:name,:price,:size,:userId,:image)";
+    
         self::$db->query($sql);
-
-        self::$db->bind(':productId',$product->getProductId());
+    
+        self::$db->bind(':productId',$productId);
         self::$db->bind(':gender',$product->getGender());
         self::$db->bind(':category',$product->getCategory());
         self::$db->bind(':type',$product->getType());
@@ -62,49 +58,6 @@ class ProductDAO {
         self::$db->bind(':size',$product->getSize());
         self::$db->bind(':userId',$product->getUserId());
         self::$db->bind(':image',$product->getImage());
-
-        self::$db->execute();
-
-        return self::$db->lastIsentItem();
-    }
-
-    public static function insertProductById( Product $product){
-
-        $sql = "INSERT INTO products VALUE(:gender:category,:type,:color,:name,:price,:size,:userId,:image";
-
-        self::$db->query($sql);
-
-        self::$db->bind(':gender',$product->getGender());
-        self::$db->bind(':category',$product->getCategory());
-        self::$db->bind(':type',$product->getType());
-        self::$db->bind(':color',$product->getBaseColor());
-        self::$db->bind(':name',$product->getProductName());
-        self::$db->bind(':price',$product->getPrice());
-        self::$db->bind(':size',$product->getSize());
-        self::$db->bind(':userId',$product->getUserId());
-        self::$db->bind(':image',$product->getImage());
-
-        self::$db->execute();
-
-        return self::$db->lastIsentItem();
-    }
-
-    public static function insertTest( Product $product){
-
-        $sql = "INSERT INTO test (gender,category,type,color,name,price,size) VALUE(:gender,:category,:type,:color,:name,:price,:size)";
-    
-        self::$db->query($sql);
-    
-        // self::$db->bind(':pId',$product->getProductId());
-        self::$db->bind(':gender',$product->getGender());
-        self::$db->bind(':category',$product->getCategory());
-        self::$db->bind(':type',$product->getType());
-        self::$db->bind(':color',$product->getBaseColor());
-        self::$db->bind(':name',$product->getProductName());
-        self::$db->bind(':price',$product->getPrice());
-        self::$db->bind(':size',$product->getSize());
-        // self::$db->bind(':userId',$product->getUserId());
-        // self::$db->bind(':image',$product->getImage());
     
         self::$db->execute();
     

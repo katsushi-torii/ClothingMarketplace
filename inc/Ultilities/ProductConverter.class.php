@@ -44,7 +44,6 @@ class ProductConverter {
     public static function convertToObj($stdObject) {
 
         $newEmployee = new Product();
-        // $newEmployee->setProductId($stdObject->productId);
         $newEmployee->setGender($stdObject->gender);
         $newEmployee->setCategory($stdObject->category);
         $newEmployee->setType($stdObject->type);
@@ -52,8 +51,8 @@ class ProductConverter {
         $newEmployee->setProductName($stdObject->productName);
         $newEmployee->setPrice($stdObject->price);
         $newEmployee->setSize($stdObject->size);
-        // $newEmployee->setUserId($stdObject->userId);
-        // $newEmployee->setImage($stdObject->image);
+        $newEmployee->setUserId($stdObject->userId);
+        $newEmployee->setImage($stdObject->image);
         
         return $newEmployee;
     }
