@@ -38,9 +38,9 @@
             <section class="comments">
                 <Chat v-for="chatList in chatData" :key="chatList[0]" :chatList="chatList" :descriptionData="this.descriptionData" @selectedChatId="getChatId"/>
             </section>
-            <form v-on:submit.prevent="postMessage">
+            <form v-on:submit.prevent="postMessage" ref="commentSection">
                 <textarea name="comment" id="comment" placeholder="Write your comment" v-model.lazy="messageObj.message" required></textarea>
-                <button ref="submitButton" type="submit">Submit</button>
+                <button type="submit">Submit</button>
             </form>
         </blockquote>
     </section>
@@ -51,7 +51,7 @@
 let url = new URL(window.location.href);
 let params = url.searchParams;
 let productId = params.get('productId');
-let loginUser = 101; //chage to session later
+let loginUser = 100; //chage to session later
 
 import Chat from './Chat.vue';
 
@@ -78,7 +78,7 @@ export default{
     methods:{
         async getChatData(){
             if(this.descriptionData.userId == loginUser){
-                this.$refs.submitButton.style.display = "none";
+                this.$refs.commentSection.style.display = "none";
             }
             try{
                 let result = await fetch(this.chatApi);
@@ -89,7 +89,7 @@ export default{
         },
         getChatId(chatId){
             this.selectedChatId = chatId;
-            this.$refs.submitButton.style.display = "block";
+            this.$refs.commentSection.style.display = "flex";
         },
         async postMessage(){
             this.messageObj.productId = productId;
@@ -120,7 +120,7 @@ export default{
             } catch(error) {
                 console.log(error);
             }
-            // location.reload();
+            location.reload();
         }
     },
     mounted(){
