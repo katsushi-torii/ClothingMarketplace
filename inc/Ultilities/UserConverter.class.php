@@ -1,7 +1,8 @@
 <?php
 
-//for description page
 class UserProductConverter {
+
+    //for description page
     static function convertUserProduct($newUser,$newProduct){
         $stdObj = new stdClass;
 
@@ -20,4 +21,18 @@ class UserProductConverter {
 
         return $stdObj;
     }
+    
+    static function convertUser($user){
+        $stdObj = new stdClass;
+
+        $stdObj->userId = $user->getUserId();
+        $stdObj->email = $user->getEmail();
+        $stdObj->userName = $user->getUserName();
+        $stdObj->password = $user->getPassword();
+        $stdObj->userAvatar = $user->getUserAvatar();   
+
+        return $stdObj;
+    }
+
+
 }

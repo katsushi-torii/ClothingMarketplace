@@ -11,7 +11,7 @@ class ProductDAO {
     
     public static function getAllProducts(){
         
-        $sql = "SELECT * FROM products LIMIT 20";
+        $sql = "SELECT * FROM products limit 20";
 
         self::$db->query($sql);
 
@@ -20,7 +20,54 @@ class ProductDAO {
         return self::$db->resultSet();
     }
 
-    public static function getProductById( int $id){
+    public static function getProductsFiltered( $array ){
+
+        $sql = 'SELECT * FROM products WHERE 1=1';
+
+        $params = [];
+
+        if($array['name'] !== 'all'){
+            $sql .= ' AND productName LIKE :name';
+            $params[':name'] = '%' . $array['name'] . '%';
+        }
+        if($array['type'] !== 'all'){
+            $sql .= ' AND type = :type';
+            $params[':type'] = $array['type'];
+        }
+        if($array['gender'] !== 'all'){
+            $sql .= ' AND gender = :gender';
+            $params[':gender'] = $array['gender'];
+        }
+        if($array['color'] !== 'all'){
+            $sql .= ' AND baseColor = :color';
+            $params[':color'] = $array['color'];
+        }
+        if($array['size'] !== 'all'){
+            $sql .= ' AND size = :size';
+            $params[':size'] = $array['size'];
+        }
+        if($array['price'] !== 'all'){
+            $sql .= ' AND price >= :price1 AND price <= :price2';
+            $price = explode("_" , $array['price'] );
+            $params[':price1'] = $price[0];
+            $params[':price2'] = $price[1];
+        }
+
+
+        self::$db->query($sql);
+
+        foreach ($params as $param => $value){
+            self::$db->bind($param,$value);
+        }
+
+        
+        
+        self::$db->execute();
+        
+        return self::$db->resultSet();
+    }
+
+    public static function getProductById( int $id ){
 
         $sql = "SELECT * FROM products WHERE productId=:id";
 
@@ -63,4 +110,13 @@ class ProductDAO {
     
         return self::$db->lastInsertId();
     }
+
+    public static function getProductsFilter($filter){
+
+        $sql = 'SELECT * FROM products WHERE';
+
+        $params = [];
+
+    }
+
 }
