@@ -12,8 +12,16 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET,POST,HEAD,OPTIONS,PUT,DELETE");
 header('Content-Type: application/json; charset=utf-8');
 
-echo json_encode(
-    ProductConverter::convertProduct(
-        ProductDAO::getAllProducts()
-    )    
-);
+if($_GET){
+    echo json_encode(
+        ProductConverter::convertProduct(
+            ProductDAO::getProductsFiltered($_GET)
+        )    
+    );
+}else{
+    echo json_encode(
+        ProductConverter::convertProduct(
+            ProductDAO::getAllProducts()
+        )    
+    );
+}
