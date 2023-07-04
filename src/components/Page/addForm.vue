@@ -127,13 +127,14 @@
                 <input class="footSize" type="number" name="size" id="size" placeholder="inches only" min=4 max=10 hidden>
                 <h4 class="noSize" hidden>No Size</h4>
             </aside>
-            <!-- <aside>
+            <aside>
                 <label for="picture">Picture:</label>
                 <label for="picture" class="fileButton">Select file</label>
-                <input type="file" name="picture" id="picture" hidden>
-            </aside> -->
+                <input type="file" name="picture" id="picture" ref="fileForm" @change="fileChange" hidden>
+            </aside>
             <button type="submit">Upload</button>
         </form>
+        <img :src="url" alt="">
     </main>
     <FooterSection/>
 </template>
@@ -143,6 +144,8 @@ import FooterSection from '../Footer.vue';
 import HeaderSection from '../Header.vue';
 import $ from 'jquery';
 
+const loginUser = 100;
+
 export default{
     name:'addFormPage',
     components:{
@@ -151,20 +154,20 @@ export default{
     },  
     data() {
         return {
-        productApi: "http://localhost:80/karigui/rest/api/V1/addForm.php",
-        
-        productObj: {
-            productName: "",
-            price: "",
-            baseColor: "",
-            gender: "",
-            category: "",
-            type: "",
-            size: ""
-        },
-        categoryObj: {
-            "Caps":"Accessories"
-        }
+            productApi: "http://localhost:80/karigui/rest-api/rest/api/V1/addForm.php",
+            
+            productObj: {
+                productName: "",
+                price: "",
+                baseColor: "",
+                gender: "",
+                category: "",
+                type: "",
+                size: "",
+                userId: "",
+                image:""
+            },
+            url:""
         }
     },
     methods: {
@@ -173,7 +176,8 @@ export default{
             const option = this.$refs['type'].options[index];
             const optgroup = option.parentElement;
             const category = optgroup.getAttribute("label");
-            console.log(category);
+            this.productObj.userId = loginUser;
+            this.productObj.image  = this.url;
 
             switch(category) {
                 case "Shoes":
@@ -228,6 +232,11 @@ export default{
                     break;
             }
         },
+        fileChange(){
+            const file = this.$refs.fileForm.files[0];
+            this.url = URL.createObjectURL(file);
+            console.log(this.url);
+        }
 
 
     }
