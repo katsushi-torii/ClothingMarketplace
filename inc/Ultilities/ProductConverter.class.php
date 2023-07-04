@@ -40,4 +40,20 @@ class ProductConverter {
             return $objList;
         }
     }
+
+    public static function convertToObj($stdObject) {
+
+        $newEmployee = new Product();
+        $newEmployee->setGender($stdObject->gender);
+        $newEmployee->setCategory($stdObject->category);
+        $newEmployee->setType($stdObject->type);
+        $newEmployee->setBaseColor($stdObject->baseColor);
+        $newEmployee->setProductName($stdObject->productName);
+        $newEmployee->setPrice($stdObject->price);
+        $newEmployee->setSize($stdObject->size);
+        $newEmployee->setUserId($stdObject->userId);
+        $newEmployee->setImage($stdObject->image);
+        
+        return $newEmployee;
+    }
 }
