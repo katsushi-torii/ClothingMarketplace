@@ -1,13 +1,15 @@
 <template>
-    <select name="size" id="size">
-        <option value="s">S</option>
-        <option value="m">M</option>
-        <option value="l">L</option>
+    <select name="size" id="size" v-model="size" @change="$emit('input',size)">
+        <option value="all" selected>ALL</option>
+        <option v-for="opt in opts" :key="opt" :value="opt">{{ opt }}</option>
     </select>
 </template>
 
 <script>
 export default{
-    name:'SizeSelect'
+    name:'SizeSelect',
+     props:{
+        opts:[]
+    }
 }
 </script>
