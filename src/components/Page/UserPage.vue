@@ -46,6 +46,10 @@
 </template>
 
 <script>
+let url = new URL(window.location.href);
+let params = url.searchParams;
+let userId = params.get('userId');
+
 import ProductCard from '../ProductCard.vue';
 import FooterSection from '../Footer.vue';
 import HeaderSection from '../Header.vue';
@@ -53,13 +57,14 @@ import HeaderSection from '../Header.vue';
 export default {
     name: 'UserPage',
     components: {
+        ProductCard,
         FooterSection,
         HeaderSection
     },
     data() {
         return {
             localProductList: [],
-            userApi: `http://localhost:80/karigui/rest/api/V1/user.php?userId=${userId}`,
+            userApi: `http://localhost:80/karigui/rest-api/rest/api/V1/user.php?userId=${userId}`,
             userData: {}
         }
     },
