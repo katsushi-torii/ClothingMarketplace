@@ -64,7 +64,7 @@ export default {
     data() {
         return {
             localProductList: [],
-            userApi: `http://localhost:80/karigui/rest/api/V1/user.php?userId=${userId}`,
+            userApi: `http://localhost:80/karigui/rest-api/rest/api/V1/user.php?userId=${userId}`,
             userData: {}
         }
     },
