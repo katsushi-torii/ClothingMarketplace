@@ -7,7 +7,7 @@
 
 <script>
 
-let loginUser = 100; //chage to session later
+let loginUser = 240; //chage to session later
 
 import Message from './Message.vue';
 export default{

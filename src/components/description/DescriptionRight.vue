@@ -51,7 +51,7 @@
 let url = new URL(window.location.href);
 let params = url.searchParams;
 let productId = params.get('productId');
-let loginUser = 100; //chage to session later
+let loginUser = 240; //chage to session later
 
 import Chat from './Chat.vue';
 
@@ -77,6 +77,7 @@ export default{
     },
     methods:{
         async getChatData(){
+            console.log(this.descriptionData.userId);
             if(this.descriptionData.userId == loginUser){
                 this.$refs.commentSection.style.display = "none";
             }
@@ -93,7 +94,7 @@ export default{
         },
         async postMessage(){
             this.messageObj.productId = productId;
-            this.messageObj.senderId= loginUser;
+            this.messageObj.senderId = loginUser;
             if(this.messageObj.senderId == this.descriptionData.userId){
             //if sender is product owner
                 this.messageObj.chatId = this.selectedChatId;
@@ -120,7 +121,7 @@ export default{
             } catch(error) {
                 console.log(error);
             }
-            location.reload();
+            // location.reload();
         }
     },
     mounted(){
