@@ -38,11 +38,9 @@ body {
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   background-color: rgb(213, 224, 226);
   align-items: center;
-  -moz-column-gap: 70%;
-       column-gap: 70%;
   height: 7vh;
   width: 100%;
   box-shadow: 5px 0 5px dimgray;
@@ -58,8 +56,7 @@ header img {
 }
 header > aside {
   display: flex;
-  -moz-column-gap: 2vh;
-       column-gap: 2vh;
+  column-gap: 2vh;
 }
 header button {
   background-color: white;
@@ -132,8 +129,7 @@ footer h3 {
 }
 .contact-footer ol {
   display: flex;
-  -moz-column-gap: 8vh;
-       column-gap: 8vh;
+  column-gap: 8vh;
 }
 .contact-footer ol a {
   border: 1px solid rgb(213, 224, 226);
@@ -193,9 +189,6 @@ footer h3 {
   border-radius: 10px;
   border: 1px solid dimgray;
   width: 95%;
-}
-.filter ::-moz-placeholder {
-  color: black;
 }
 .filter ::placeholder {
   color: black;
@@ -262,8 +255,7 @@ footer h3 {
 
 .description {
   display: flex;
-  -moz-column-gap: 5vh;
-       column-gap: 5vh;
+  column-gap: 5vh;
   padding: 10vh 0;
   width: 120vh;
 }
@@ -285,8 +277,7 @@ footer h3 {
 
 .dSlideSub {
   display: flex;
-  -moz-column-gap: 2px;
-       column-gap: 2px;
+  column-gap: 2px;
 }
 .dSlideSub button {
   width: 10vh;
@@ -338,8 +329,7 @@ footer h3 {
 .desRight > section section {
   display: flex;
   align-items: center;
-  -moz-column-gap: 2vh;
-       column-gap: 2vh;
+  column-gap: 2vh;
 }
 .desRight > section button {
   background-color: rgb(213, 224, 226);
@@ -374,8 +364,7 @@ footer h3 {
 }
 .desRight > section span {
   display: flex;
-  -moz-column-gap: 1vh;
-       column-gap: 1vh;
+  column-gap: 1vh;
 }
 .desRight ul {
   display: flex;
@@ -386,8 +375,7 @@ footer h3 {
 .desRight ul > li {
   display: flex;
   align-items: center;
-  -moz-column-gap: 1vh;
-       column-gap: 1vh;
+  column-gap: 1vh;
 }
 .desRight blockquote {
   display: flex;
@@ -403,8 +391,7 @@ footer h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  -moz-column-gap: 4vh;
-       column-gap: 4vh;
+  column-gap: 4vh;
   padding-bottom: 1vh;
   border-bottom: 2px solid rgb(217, 217, 218);
 }
@@ -549,15 +536,13 @@ footer h3 {
   padding: 10px;
   display: flex;
   position: fixed;
-  -moz-column-gap: 3vh;
-       column-gap: 3vh;
+  column-gap: 3vh;
 }
 .user-profile img {
   border-radius: 50%;
   width: 20vh;
   height: 20vh;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .user-profile figcaption {
   width: 70%;
@@ -571,8 +556,7 @@ footer h3 {
   display: flex;
   align-items: center;
   width: 30%;
-  -moz-column-gap: 1vw;
-       column-gap: 1vw;
+  column-gap: 1vw;
   overflow: auto;
   flex-wrap: wrap;
   color: blue;
