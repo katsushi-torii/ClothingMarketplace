@@ -37,13 +37,12 @@ class MessageDAO {
         return $messageList;
     }
 
-    public static function insertToChat(int $chatId, Message $message){
+    public static function insertToChat( Message $message){
 
-        $sql = "INSERT INTO chats (chatId,productId,buyerId) VALUE(:chatId,:productId,1)";
+        $sql = "INSERT INTO chats (productId) VALUE(:productId)";
     
         self::$db->query($sql);
     
-        self::$db->bind(':chatId',$chatId);
         self::$db->bind(':productId',$message->getProductId());
     
         self::$db->execute();
