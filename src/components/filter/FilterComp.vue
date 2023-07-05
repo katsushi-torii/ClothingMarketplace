@@ -1,10 +1,15 @@
 <template>
     <form action="#" v-on:submit.prevent="$emit('filter',filter)">
         <input type="text" name="name" id="name" placeholder="Search by name" v-model="filter.name">
+        <label for="size">Select Size</label>
         <size-select :opts="filterOpt.size" v-model="filter.size"/>
+        <label for="color">Select Color</label>
         <color-select :opts="filterOpt.baseColor" v-model="filter.color"/>
+        <label for="gender">Select Gender</label>
         <gender-select :opts="filterOpt.gender" v-model="filter.gender"/>
+        <label for="price">Select Price</label>
         <price-select v-model="filter.price"/>
+        <label for="type">Select Type</label>
         <type-select :opts="filterOpt.type" v-model="filter.type"/>
         <button type="submit">Filter</button>
     </form>
@@ -33,7 +38,7 @@ export default{
             filter:{
                 color: 'all',
                 size: 'all',
-                name: 'all',
+                name: '',
                 gender: 'all',
                 price: 'all',
                 type: 'all'
