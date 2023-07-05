@@ -17,4 +17,14 @@ class UserDAO {
 
         return self::$db->singleResult();
     }
+
+    public static function getUserByUserName(string $userName){
+        $sql = "SELECT * FROM userdata WHERE userName=:userName";
+
+        self::$db->query($sql);
+        self::$db->bind(':userName',$userName);
+        self::$db->execute();
+
+        return self::$db->singleResult();
+    }
 }
