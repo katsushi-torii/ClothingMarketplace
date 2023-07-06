@@ -145,8 +145,6 @@ import HeaderSection from '../Header.vue';
 import $ from 'jquery';
 import VueCookies from 'vue-cookies';
 
-const loginUser = VueCookies.get("user").userId;
-
 export default{
     name:'addFormPage',
     components:{
@@ -168,7 +166,12 @@ export default{
                 userId: "",
                 image:""
             },
-            url:""
+            url:"",
+            
+            logged: false,
+            userName: "",
+            userId:null,
+            loginUser:""
         }
     },
     methods: {
@@ -177,7 +180,7 @@ export default{
             const option = this.$refs['type'].options[index];
             const optgroup = option.parentElement;
             const category = optgroup.getAttribute("label");
-            this.productObj.userId = loginUser;
+            this.productObj.userId = this.loginUser;
             this.productObj.image  = this.url;
 
             switch(category) {
@@ -202,7 +205,7 @@ export default{
                 ).then((response) => response.text()
                 ).then((data) => {
                 console.log(data);
-                window.location.replace( "./profile" );
+                // window.location.replace( "./profile" );
                 });
             } catch(error) {
                 console.log(error);
@@ -238,8 +241,17 @@ export default{
             this.url = URL.createObjectURL(file);
             console.log(this.url);
         }
+    },
+    created() {
+        if (VueCookies.isKey("user")) {
+            this.userName ="Welcome, "+ VueCookies.get("user").userName + "!";
+            this.userId = VueCookies.get("user").userId;
+            this.logged = true;
+            this.loginUser = VueCookies.get("user").userId;
+        } else {
+            this.logged = false;
 
-
+        }
     }
 }
 </script>
