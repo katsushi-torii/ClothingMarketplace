@@ -65,11 +65,13 @@ export default {
         return {
             localProductList: [],
             userApi: `http://localhost:80/karigui/rest-api/rest/api/V1/user.php?userId=${userId}`,
-            userData: {}
+            productUserApi: `http://localhost:80/karigui/rest-api/rest/api/V1/productsUser.php`,
+            userData: {},
+            productList: []
         }
     },
     props: {
-        productList: []
+        // productList: []
     },
     methods: {
         async getUserData() {
@@ -79,14 +81,23 @@ export default {
             } catch (error) {
                 console.log(error);
             }
+        },
+        async getProductUserData() {
+            try {
+                let result = await fetch(this.productUserApi);
+                this.productList = await result.json();
+                this.localProductList = this.productList.filter(
+                    product => product.userId == userId);
+            } catch (error) {
+                console.log(error);
+            }
         }
     },
     created() {
         this.getUserData();
     },
     beforeUpdate() {
-        this.localProductList = this.productList.filter(
-            product => product.userId == userId);
+        this.getProductUserData();
     },
     mounted() {
         if (localStorage.getItem('reloaded')) {
