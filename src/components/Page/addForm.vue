@@ -143,8 +143,9 @@
 import FooterSection from '../Footer.vue';
 import HeaderSection from '../Header.vue';
 import $ from 'jquery';
+import VueCookies from 'vue-cookies';
 
-const loginUser = 100;
+const loginUser = VueCookies.get("user").userId;
 
 export default{
     name:'addFormPage',
