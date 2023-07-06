@@ -43,10 +43,10 @@ body{
 
 header{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     background-color: $blue;
     align-items: center;
-    column-gap: 70%;
+    // column-gap: 70%;
     height: 7vh;
     width: 100%;
     box-shadow: 5px 0 5px dimgray;

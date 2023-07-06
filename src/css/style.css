@@ -38,11 +38,9 @@ body {
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   background-color: rgb(213, 224, 226);
   align-items: center;
-  -moz-column-gap: 70%;
-       column-gap: 70%;
   height: 7vh;
   width: 100%;
   box-shadow: 5px 0 5px dimgray;
@@ -293,6 +291,7 @@ footer h3 {
 .dSlideMain {
   overflow: hidden;
   padding: 1px;
+  box-shadow: 0 -5px 8px 1px rgb(217, 217, 218);
 }
 .dSlideMain img {
   width: 40vh;
