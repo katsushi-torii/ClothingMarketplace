@@ -19,6 +19,17 @@ class ProductDAO {
 
         return self::$db->resultSet();
     }
+    
+    public static function getLiterallyAllProducts(){
+        
+        $sql = "SELECT * FROM products";
+
+        self::$db->query($sql);
+
+        self::$db->execute();
+
+        return self::$db->resultSet();
+    }
 
     public static function getProductsFiltered( $array ){
 
