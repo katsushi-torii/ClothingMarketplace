@@ -192,10 +192,29 @@
 }
 
 .comments {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4vh;
+
+    button {
+        width: 15vh;
+        align-self: center;
+    }
+
     > article {
         display: flex;
         flex-direction: column;
         row-gap: 2vh;
+        border-radius: 10px;
+        padding: 1vh;
+    }
+    
+    > article:nth-child(even) {
+        border: 3px solid $grey;
+    }
+
+    > article:nth-child(odd) {
+        border: 3px solid black;
     }
 
     figure {
@@ -211,16 +230,12 @@
     }
 }
 
-.question {
+.message {
+    display: flex;
     figcaption {
         background-color: $blue;
         padding: 1vh;
-    }
-}
-
-.answer {
-    figcaption {
-        background-color: $grey;
-        padding: 1vh;
+        word-wrap: break-word;
+        text-align: left;
     }
 }
