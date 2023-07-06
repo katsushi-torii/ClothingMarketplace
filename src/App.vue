@@ -12,7 +12,15 @@ export default {
   data(){
     return{
       productApi:'http://localhost:80/karigui/rest-api/rest/api/V1/products.php',
-      productList:[]
+      productList:[],
+      filter:{
+        color: '',
+        size: '',
+        name: '',
+        gender: '',
+        price: '',
+        type: ''
+      }
     }
   },
   methods:{
@@ -21,6 +29,15 @@ export default {
         let result = await fetch(this.productApi);
         this.productList = await result.json();
         // console.log(this.productList);
+      }catch(error){
+        console.log(error);
+      }
+    },
+    async getProductsFilter(){
+      try{
+        let result = await fetch(`${this.productApi}?name=${this.filter.name}&size=${this.filter.size}&color=${this.filter.color}&gender=${this.filter.gender}&price=${this.filter.price}&type=${this.filter.type}`);
+        this.productList = await result.json();
+        console.log(this.filter);
       }catch(error){
         console.log(error);
       }

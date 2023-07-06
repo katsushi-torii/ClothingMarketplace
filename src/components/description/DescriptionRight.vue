@@ -38,7 +38,7 @@
             <section class="comments">
                 <Chat v-for="chatList in chatData" :key="chatList[0]" :chatList="chatList" :descriptionData="this.descriptionData" @selectedChatId="getChatId"/>
             </section>
-            <form v-on:submit.prevent="postMessage" ref="commentSection">
+            <form v-on:submit.prevent="postMessage" class="commentSection">
                 <textarea name="comment" id="comment" placeholder="Write your comment" v-model.lazy="messageObj.message" required></textarea>
                 <button type="submit">Submit</button>
             </form>
@@ -47,20 +47,16 @@
 </template>
 
 <script>
+import VueCookies from 'vue-cookies';
+import Chat from './Chat.vue';
 
 let url = new URL(window.location.href);
 let params = url.searchParams;
 let productId = params.get('productId');
-let loginUser = 240; //chage to session later
-
-import Chat from './Chat.vue';
 
 export default{
     name: "DescriptionRight",
     components: { Chat },
-    props:{
-        descriptionData:{}
-    },
     data(){
         return{
             chatApi:`http://localhost:80/karigui/rest-api/rest/api/V1/chat.php?productId=${productId}`,
@@ -72,29 +68,34 @@ export default{
                 senderId: "",
                 productId: "",
                 chatId: 0
-            }
+            },
+            
+            logged: false,
+            userName: "",
+            userId:null,
+            loginUser:""
         }
+    },
+    props:{
+        descriptionData:{}
     },
     methods:{
         async getChatData(){
-            console.log(this.descriptionData.userId);
-            if(this.descriptionData.userId == loginUser){
-                this.$refs.commentSection.style.display = "none";
-            }
             try{
                 let result = await fetch(this.chatApi);
                 this.chatData = await result.json();
             }catch(error){
                 console.log(error);
+
             }
         },
         getChatId(chatId){
             this.selectedChatId = chatId;
-            this.$refs.commentSection.style.display = "flex";
+            document.getElementsByClassName("commentSection")[0].style.display = "flex";
         },
         async postMessage(){
             this.messageObj.productId = productId;
-            this.messageObj.senderId = loginUser;
+            this.messageObj.senderId = this.loginUser;
             if(this.messageObj.senderId == this.descriptionData.userId){
             //if sender is product owner
                 this.messageObj.chatId = this.selectedChatId;
@@ -104,6 +105,7 @@ export default{
                     //if sender already is an existed questioner
                         this.messageObj.chatId = (this.chatData[i])[0].chatId;
                     }
+                     
                 }
             }
             try {
@@ -122,10 +124,27 @@ export default{
                 console.log(error);
             }
             // location.reload();
+        },
+        hideComment(){
+            console.log(this.descriptionData.userId);
+            if(this.descriptionData.userId == this.loginUser){
+                document.getElementsByClassName("commentSection")[0].style.display = "none";
+            }
         }
     },
     mounted(){
+        this.hideComment();
+    },
+    created() {
         this.getChatData();
+        if (VueCookies.isKey("user")) {
+            this.userId = VueCookies.get("user").userId;
+            this.logged = true;
+            this.loginUser = VueCookies.get("user").userId;
+        } else {
+            this.logged = false;
+
+        }
     }
 }
 </script>
