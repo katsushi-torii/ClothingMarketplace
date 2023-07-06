@@ -50,7 +50,6 @@ export default{
             try{
                 let result = await fetch(this.fitlerApi);
                 this.filterOpt = await result.json();
-                console.log(this.filterOpt)
             }catch(error){
                 console.log(error)
             }

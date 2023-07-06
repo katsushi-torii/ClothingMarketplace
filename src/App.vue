@@ -27,8 +27,22 @@ export default {
     async getProducts(){
       try{
         let result = await fetch(this.productApi);
-        this.productList = await result.json();
-        // console.log(this.productList);
+        let products = await result.json();
+        let count = 1;
+        console.log(products.length)
+        for(let i = 0; i < products.length; i+=25) {
+          let tempArray = []
+          for (let j = i; j < (i + 25); j++) {
+            // this.productList[count] = []
+            if ( j > products.length-1 ) {
+              break;
+            }
+            tempArray.push(products[j]);
+          }
+          this.productList[count] = tempArray;
+          count++;
+        }   
+        console.log(this.productList);
       }catch(error){
         console.log(error);
       }
