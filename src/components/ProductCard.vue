@@ -1,18 +1,22 @@
 <template>
     <figure class="product-card">
-        <router-link class="nav-link" to="/product">
+        <router-link :to="`/product?productId=${product.productId}`">
             
-            <img src="http://assets.myntassets.com/v1/images/style/properties/7a5b82d1372a7a5c6de67ae7a314fd91_images.jpg" alt="test">
+            <img :src="product.image" :alt="product.productName">
             <figcaption>
-                <p>Product Name</p>
-                <span>$99,99</span>
+                <p>{{ product.productName }}</p>
+                <span>${{ product.price }}</span>
             </figcaption>
+
         </router-link>
     </figure>
 </template>
 
 <script>
 export default {
-    name:'ProductCard'
+    name:'ProductCard',
+    props:{
+        product:{}
+    }
 }
 </script>
